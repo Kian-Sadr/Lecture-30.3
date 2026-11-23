@@ -3,6 +3,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function getValue(text){
     //Complete
+    return text = "" ? "DEFAULT" :text;
 }
 
 function Page() {
@@ -10,13 +11,17 @@ function Page() {
     const [input, setInput] = useState("");
     const [header, setPrinted] = useState("New Conditionals");
 
+    function changeTitle(){
+        setPrinted(input);
+    }
+    
     //Return page. Also handling event object as function parameter
     return (
         <>
             <h1>{header}</h1>
-            <input/>
+            <input onChange={(event) => setInput(event.target.value)}/>
             <br/>
-            <button>Change Title</button>
+            <button onClick={changeTitle}>Change Title</button>
         </>
     );
 }
